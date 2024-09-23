@@ -1,0 +1,21 @@
+{% block contents %}
+
+<div class="navi-bar">
+
+    <a href="{{ url_for('dashboard') }}" class="logo1">Martin's Blog</a>
+
+    <ul>     
+        {% if current_user.is_authenticated %}
+            <li><a href="{{ url_for('post_page') }}">Post</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+            <li><a href="{{ url_for('profile') }}">Profile</a></li>
+        {% else %}
+            <li><a href="{{ url_for('signup_page') }}">Sign Up</a></li>
+            <li><a href="{{ url_for('login_page') }}">Log In</a></li>
+            <li><a href="{{ url_for('profile') }}">Profile</a></li>
+        {% endif %}
+    </ul>
+
+</div>
+
+{% endblock %}

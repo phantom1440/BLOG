@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+
+{% block contents %}
+
+{% for message in get_flashed_messages() %}
+
+<div class="flash-message">
+    {{message}}
+</div>
+
+{% endfor %}
+
+{% for post in posts %}
+
+    {% if current_user.is_authenticated %}
+        {% if post.user.id == current_user.id %}
+            
+                <div class="post">
+                    <h3>{{post.title}}</h3><br>
+                    <p>{{post.body}}</p><br>
+                    <p>posted by: {{post.user.name}}</p>
+                    <p>posted date: {{post.date_posted.date()}}</p>
+                    <a href="{{ url_for('delete_post', post_id=post.id) }}" onclick="return confirm('Are you sure to DELETE!!!')">Delete</a>
+                    <a href="{{ url_for('update_post_page', post_id=post.id) }}">Edit</a>
+                </div>
+            
+        {% else %}
+            
+                <div class="post">
+                    <h3>{{post.title}}</h3><br>
+                    <p>{{post.body}}</p><br>
+                    <p>posted by: {{post.user.name}}</p>
+                    <p>posted date: {{post.date_posted.date()}}</p>
+                </div>
+           
+        {% endif %}
+            
+    {% else %}
+   
+        <div class="post">
+            <h3>{{post.title}}</h3><br>
+            <p>{{post.body}}</p><br>
+            <p>posted by: {{post.user.name}}</p>
+            <p>posted date: {{post.date_posted.date()}}</p>
+        </div>
+       
+    {% endif %}
+{% endfor %}
+
+{% endblock %}
+
+
+
+
+
+
+

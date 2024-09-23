@@ -1,0 +1,1 @@
+p = 'mysql://root:Kana2000):@localhost/users'

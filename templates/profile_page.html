@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}Profile Page{% endblock %}
+
+{% block contents %}
+
+{% for message in get_flashed_messages() %}
+
+<div class="flash-message">
+    {{message}}
+</div>
+
+{% endfor %}
+
+<div class="profile">
+    <div class="informations">
+        <div class="info">
+            <p><strong>Name:</strong> {{current_user.name}}</p>
+            <p><strong>User Name: </strong> {{current_user.username}}</p>
+            <p><strong>Email: </strong> {{current_user.email}}</p>
+            <p><strong>Contact: </strong> {{current_user.contact}}</p>
+            <p><strong>Graduated at: </strong> {{current_user.education}}</p>
+            <p><strong>Date Joined: </strong> {{current_user.date_added.date()}}</p>
+        </div>
+
+        <div class="picture">
+            <img src="static/images/{{current_user.profile_pic}}" alt="No Image Loaded">
+        </div> 
+    </div>
+
+    <div class="controls">
+        <a href="{{ url_for('delete') }}" onclick="return confirm('Are you sure to DELETE?')">Delete</a>
+        <a href="{{ url_for('view_post') }}">View Posts</a>
+    </div>
+</div>
+
+<form class="profile-form" action="{{ url_for('update') }}" method="POST" enctype="multipart/form-data">
+
+    <label> Name </label>
+    <input type="text" name="namee" value="{{ current_user.name }}">
+
+    <label> Email </label>
+    <input type="email" name="mail" value="{{ current_user.email }}">
+
+    <label> Contact </label>
+    <input type="number" name="contact" value="{{ current_user.contact }}">
+
+
+    <label> Graduated at: </label>
+    <input type="text" name="school" value="{{ current_user.education }}">
+
+
+    <label> User Name </label>
+    <input type="text" name="user_name" value="{{ current_user.username }}">
+
+
+    <label> Profile Picture </label>
+    <input type="file" name="pict" >
+</div>
+
+<div class="update-btn2">
+    <input type="submit" value="Update">
+</div>
+
+</form>
+
+{% endblock %}

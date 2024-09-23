@@ -1,0 +1,52 @@
+.navi-bar{
+    top: 0;
+    position: sticky;
+    width: 100%;
+    background-color: rgba(255, 183, 48, 0.925);
+    z-index: 9999;
+}
+
+.navi-bar .logo1{
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 60px;
+    font-size: 1.3rem;
+    padding: 10px;
+}
+
+.navi-bar ul{
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.navi-bar ul li{
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.navi-bar ul li a{
+    height: 60px;
+    width: 100%;
+    padding: 20px;
+}
+
+.navi-bar a{
+    text-decoration: none;
+    color: black;
+    height: 100%;
+    transition: 0.2s ease-in;
+}
+
+.navi-bar ul li a:hover{
+    background-color: rgba(255, 254, 253, 0.274);
+  
+}
+

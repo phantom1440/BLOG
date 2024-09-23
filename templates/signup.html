@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block contents %}
+
+<form class="signup-form23" action="{{url_for('signup')}}" method="POST" enctype="multipart/form-data">
+
+    <h3 class="header-signup">Sign Up</h3>
+
+    <div class="signup-contents">
+
+        <label> Name </label>
+        <input type="text" name="namee" required>
+
+        <label> Email </label>
+        <input type="email" name="mail" required>
+
+        <label> Contact </label>
+        <input type="number" name="contact" required>
+
+
+        <label> Graduated at: </label>
+        <input type="text" name="school" required>
+
+
+        <label> User Name </label>
+        <input type="text" name="user_name" required>
+
+
+        <label> Password </label>
+        <input type="password" name="user_password" required>
+
+        <label> Profile Picture </label>
+        <input type="file" name="pict" required>
+    </div>
+
+    <div class="signup-btn">
+        <input type="submit" value="Sign Up">
+    </div>
+
+</form>
+
+{% endblock %}
